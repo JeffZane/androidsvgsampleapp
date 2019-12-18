@@ -11,54 +11,49 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 public abstract class BaseActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener
-{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-   @Override
-   protected void onCreate(Bundle savedInstanceState)
-   {
-      super.onCreate(savedInstanceState);
-   }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
 
-   protected void initNavigationDrawer()
-   {
-      // Prevent the activity slide-in animation
-      overridePendingTransition(0, 0);
+    protected void initNavigationDrawer() {
+        // Prevent the activity slide-in animation
+        overridePendingTransition(0, 0);
 
-      Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-      ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-              this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-      drawer.addDrawerListener(toggle);
-      toggle.syncState();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-      NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-      navigationView.setNavigationItemSelectedListener(this);
-   }
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
 
-   @Override
-   public void onBackPressed()
-   {
-      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-      if (drawer.isDrawerOpen(GravityCompat.START)) {
-         drawer.closeDrawer(GravityCompat.START);
-      } else {
-         super.onBackPressed();
-      }
-   }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
 
-   void closeNavDrawer()
-   {
-      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-      drawer.closeDrawer(GravityCompat.START);
-   }
+    void closeNavDrawer() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+    }
 
-   @Override
-   public abstract boolean onNavigationItemSelected(@NonNull MenuItem item);
+    @Override
+    public abstract boolean onNavigationItemSelected(@NonNull MenuItem item);
 
 /*
    @Override

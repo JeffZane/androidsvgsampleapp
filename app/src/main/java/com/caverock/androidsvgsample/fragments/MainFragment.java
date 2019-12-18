@@ -9,12 +9,10 @@ import android.view.ViewGroup;
 
 import com.caverock.androidsvgsample.R;
 
-public class MainFragment extends Fragment
-{
-   @Nullable
-   @Override
-   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-   {
-       return inflater.inflate(R.layout.content_main, container, false);
-   }
+public class MainFragment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.content_main, container, false);
+    }
 }
